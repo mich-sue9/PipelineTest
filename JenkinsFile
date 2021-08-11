@@ -41,12 +41,10 @@ pipeline{
             }
         }
 
-        // stage("Docker build"){
-        //     steps{
-        //         script{docker.build("michelle/calculator .")}
-                
-        //         // sh "docker build -t michelle/calculator ."
-        //     }
-        // }
+        stage("Docker build"){
+            steps{
+                sh "docker build -t michellelsy/calculator ."
+            }
+        }
     }
 }
