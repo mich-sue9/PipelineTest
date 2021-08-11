@@ -43,7 +43,8 @@ pipeline{
 
         stage("Docker build"){
             steps{
-                sh "docker build -t michelle/calculator ."
+                docker.build("michelle/calculator .")
+                // sh "docker build -t michelle/calculator ."
             }
         }
     }
