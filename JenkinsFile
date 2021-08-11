@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent { dockerfile true }
     stages{
         stage("Compile"){
             steps{
@@ -41,12 +41,12 @@ pipeline{
             }
         }
 
-        stage("Docker build"){
-            steps{
-                script{docker.build("michelle/calculator .")}
+        // stage("Docker build"){
+        //     steps{
+        //         script{docker.build("michelle/calculator .")}
                 
-                // sh "docker build -t michelle/calculator ."
-            }
-        }
+        //         // sh "docker build -t michelle/calculator ."
+        //     }
+        // }
     }
 }
