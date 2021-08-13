@@ -47,5 +47,14 @@ pipeline{
             }
         }
 
+        stage("Deploy to staging") {
+            steps {
+                sh "docker run -d --rm -p 8765:8080 --name calculator michellelsy/calculator"
+            }
+        }
+
     }
 }
+
+// Cmd used to run docker ON UBUNTU : https://blog.nestybox.com/2019/09/29/jenkins.html 
+// docker run --rm -d --group-add $(stat -c '%g' /var/run/docker.sock)  -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -P jenkins-docker
